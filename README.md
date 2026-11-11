@@ -1,92 +1,58 @@
 # ⚡ PulseFit - Centro de Alto Rendimiento y Fitness
 
-Aplicación web interactiva desarrollada con **Angular 22** (arquitectura standalone, signals y computed state sin persistencia externa), basada en la maqueta original de Pulsefit.
+**PulseFit** es una plataforma web interactiva diseñada para ser tu compañero definitivo en el mundo del fitness. Ya sea que busques perder peso, ganar masa muscular o mantener un estilo de vida saludable, PulseFit centraliza todas las herramientas, métricas y rutinas que necesitas para alcanzar tus metas de forma estructurada.
 
 ---
 
-## 🚀 Despliegue en Vercel
+## ✨ Características Principales
 
-El proyecto incluye la configuración en [`vercel.json`](./vercel.json) optimizada para Angular como Single Page Application (SPA) con redirección de rutas y directorio de salida `dist/pulsefit/browser`.
+Nuestra plataforma está dividida en 5 módulos principales diseñados para cubrir todas las áreas del acondicionamiento físico:
 
-### Opción 1: Despliegue automático con Git / GitHub (Recomendado)
+### 📊 1. Perfil y Biometría (IMC & Macros)
+Personaliza tu experiencia ingresando tus datos físicos. El sistema calcula automáticamente:
+- **Índice de Masa Corporal (IMC)** y tu estado de salud actual.
+- **TDEE (Gasto Energético Diario Total)** para saber cuántas calorías quemas al día.
+- **Distribución de Macronutrientes** (Proteínas, Carbohidratos y Grasas) ajustada exactamente a tu objetivo: déficit, mantenimiento o volumen.
 
-1. Sube tus cambios a tu repositorio de GitHub:
-   ```bash
-   git add .
-   git commit -m "feat: setup pulsefit angular with vercel deployment config"
-   git push origin main
-   ```
-2. Ve a [vercel.com](https://vercel.com) e inicia sesión.
-3. Haz clic en **"Add New..."** > **"Project"**.
-4. Importa tu repositorio `Pulsefit`.
-5. Vercel detectará automáticamente la configuración definida en `vercel.json`:
-   - **Framework Preset**: Angular
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist/pulsefit/browser`
-6. Haz clic en **Deploy**. ¡Tu aplicación estará en línea con HTTPS y CDN global!
+### 📝 2. Diario de Entrenamiento
+Lleva un control estricto de tu progreso. Registra cada sesión detallando:
+- Fecha y grupo muscular trabajado.
+- Duración total e intensidad del entrenamiento.
+- Detalle de los ejercicios, series y pesos levantados.
 
----
+### 🏋️ 3. Catálogo de Rutinas Recomendadas
+No importa tu nivel, PulseFit te ofrece un catálogo de rutinas pre-diseñadas:
+- **Iniciación Full Body:** Para adaptación y resistencia.
+- **Hipertrofia (Torso / Pierna):** Enfoque en el desarrollo y ganancia de masa muscular.
+- **Fuerza Máxima (5x5):** Entrenamientos pesados basados en ejercicios compuestos.
 
-### Opción 2: Despliegue desde la terminal con Vercel CLI
+### 🥗 4. Dietas y Nutrición
+La alimentación es el 70% de los resultados. Accede a guías nutricionales estructuradas según tu fase actual, con recomendaciones exactas de gramos de proteína por kilo de peso, grasas saludables y manejo de carbohidratos.
 
-1. Si no tienes Vercel CLI instalado:
-   ```bash
-   npm i -g vercel
-   ```
-2. Ejecuta el despliegue de prueba:
-   ```bash
-   vercel
-   ```
-3. Para desplegar directamente a producción:
-   ```bash
-   vercel --prod
-   ```
+### ⏱️ 5. Herramientas Integradas
+Maximiza tu rendimiento en el gimnasio sin depender de otras aplicaciones:
+- **Temporizador de Descanso:** Cronómetro integrado con atajos rápidos (30s, 60s, 90s, 2min) para controlar tus tiempos entre series.
+- **Registro de Hidratación:** Tracker interactivo para asegurar que cumplas tu meta de 8 vasos (2 litros) de agua al día.
 
 ---
 
-## 🛠️ Desarrollo Local
+## 💻 Interfaz y Experiencia de Usuario (UX/UI)
 
-- **Instalar dependencias:**
-  ```bash
-  npm install
-  ```
-- **Iniciar servidor de desarrollo:**
-  ```bash
-  npm start
-  ```
-  Accede a `http://localhost:4200/`.
-
-- **Compilar para producción:**
-  ```bash
-  npm run build
-  ```
-
-- **Ejecutar pruebas unitarias:**
-  ```bash
-  npm test
-  ```
+PulseFit cuenta con un diseño de vanguardia pensado para el usuario moderno:
+- **Modo Oscuro Nativo:** Interfaz *Dark Theme* con acentos en colores neón (Lime) que reduce la fatiga visual.
+- **Diseño Responsivo:** Completamente adaptable a dispositivos móviles, tablets y computadoras de escritorio.
+- **Navegación Fluida:** Arquitectura Single Page Application (SPA) que permite cambiar entre el perfil, las rutinas y las herramientas sin recargar la página.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 👥 Equipo de Desarrollo
 
-```text
-src/
-├── app/
-│   ├── core/                    # Servicios singleton, modelos globales, interceptores y guardianes
-│   │   ├── guards/              # Guardias de ruta funcionales
-│   │   ├── interceptors/        # Interceptores HTTP
-│   │   ├── models/              # Modelos TypeScript (Perfil, Rutinas, Entrenamientos, Colaboradores)
-│   │   └── services/            # Lógica reactiva en memoria con Signals
-│   ├── shared/                  # Componentes reutilizables, directivas y pipes
-│   ├── features/                # Módulos y vistas lazy-loaded (Perfil, Actividad, Rutinas, Nutrición, Herramientas)
-│   ├── layout/                  # Navbar, Footer y Sección de Colaboradores (Bootstrap Grid)
-│   ├── app.component.ts         # Componente raíz
-│   ├── app.config.ts            # Providers globales
-│   └── app.routes.ts            # Rutas con lazy loading
-├── assets/                      # Íconos y recursos estáticos
-├── environments/                # Variables de entorno
-├── index.html                   # CDN Tailwind, Bootstrap y FontAwesome
-├── main.ts                      # Bootstrap standalone
-└── styles.scss                  # Estilos globales y clases personalizadas
-```
+Este proyecto fue desarrollado de forma colaborativa por:
+- **Daniel Perez** - Desarrollador
+- **Sebastian Bolivar** - Desarrollador
+- **Julian Mera** - Desarrollador
+- **Manuela Betancourth** - Desarrolladora
+
+---
+
+> *"El único entrenamiento malo es el que no sucedió."* — **El Equipo de PulseFit**
