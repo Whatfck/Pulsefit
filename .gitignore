@@ -1,0 +1,74 @@
+# Dependencies
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Angular build and cache
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+/.angular/
+/.angular/cache/
+
+# Test and coverage output
+/coverage/
+/.nyc_output/
+__screenshots__/
+/test-results/
+/playwright-report/
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+.envrc
+
+# IDE and editor files
+.idea/
+.project
+.classpath
+.c9/
+.settings/
+*.launch
+*.sublime-workspace
+.history/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+
+# TypeScript and tooling caches
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.sass-cache/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Other temporary and generated files
+/typings/
+/connect.lock
+/libpeerconnection.log
+/testem.log
+*.tmp
+*.temp
