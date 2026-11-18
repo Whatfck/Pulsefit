@@ -1,26 +1,25 @@
-import { Injectable, computed, inject, signal } from "@angular/core";
-import { ProfileStorage } from "../storage/profile-storage";
-import { calculateFitnessMetrics } from "../utils/profile-calculator";
-import { UserProfile } from "../models/profile.model";
+import { Injectable, signal } from "@angular/core";
+import { StorageService } from "./storage.service";
+
+export interface ProfileData {
+  name?: string;
+  age?: number;
+  weightKg?: number;
+  heightCm?: number;
+}
 
 @Injectable({ providedIn: "root" })
 export class ProfileService {
-  private readonly storage = inject(ProfileStorage);
-  private readonly _profile = signal<UserProfile | null>(this.storage.load());
-
+  private readonly key = "pulsefit.profile";
+  private readonly _profile = signal<ProfileData>({});
   readonly profile = this._profile.asReadonly();
-  readonly metrics = computed(() => {
-    const profile = this._profile();
-    return profile ? calculateFitnessMetrics(profile) : null;
-  });
 
-  saveProfile(profile: UserProfile): boolean {
-    const saved = this.storage.save(profile);
-    if (saved) this._profile.set(profile);
-    return saved;
+  constructor(private readonly storage: StorageService) {
+    this._profile.set(this.storage.read<ProfileData>(this.key) ?? {});
   }
 
-  clearProfile(): void {
-    this._profile.set(null);
+  save(profile: ProfileData): void {
+    this._profile.set(profile);
+    this.storage.write(this.key, profile);
   }
 }
