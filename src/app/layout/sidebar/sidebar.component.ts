@@ -1,37 +1,81 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CollaboratorService } from '../../core/services/collaborator.service';
+import { Component, inject } from "@angular/core";
+import { CollaboratorService } from "../../core/services/collaborator.service";
 
 @Component({
-  selector: 'app-sidebar',
+  selector: "app-sidebar",
   standalone: true,
-  imports: [CommonModule],
   template: `
-    <section class="border-t border-slate-800/80 bg-slate-900/50 py-4 mt-8" aria-labelledby="collaborators-title">
-      <div class="container my-5">
-        <h2 id="collaborators-title" class="text-center mb-4 text-light font-bold">Nuestros Colaboradores</h2>
-        @if (collaborators().length === 0) {
-          <p class="text-center text-slate-400" role="status">No hay colaboradores disponibles.</p>
-        } @else {
-          <div class="row my-3 g-3" role="list">
-            @for (collab of collaborators(); track collab.name) {
-              <div class="col-12 col-sm-6 col-md-3" role="listitem">
-                <a [href]="collab.profileUrl" target="_blank" rel="noopener noreferrer" class="text-decoration-none collaborator-link" [attr.aria-label]="'Perfil de ' + collab.name + ' en GitHub'">
-                  <div class="card bs-dark-card p-3 text-center h-100 shadow-sm">
-                    <div class="card-body flex flex-col items-center justify-center">
-                      <span class="dev-icon mb-2" aria-hidden="true">&lt;/&gt;</span>
-                      <h5 class="card-title font-bold text-white mb-1">{{ collab.name }}</h5>
-                      <p class="card-text text-slate-400 text-xs">{{ collab.role }}</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            }
-          </div>
+    <section class="collaborators" aria-labelledby="collaborators-title">
+      <h2 id="collaborators-title">Equipo de desarrollo</h2>
+      <div class="collaborator-grid">
+        @for (collaborator of collaborators(); track collaborator.profileUrl) {
+          <a
+            class="collaborator"
+            [href]="collaborator.profileUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>{{ collaborator.name }}</strong>
+            <span>{{ collaborator.role }}</span>
+          </a>
         }
       </div>
     </section>
-  `
+  `,
+  styles: `
+    .collaborators {
+      padding: 48px max(16px, calc((100% - 1120px) / 2));
+      background: #0d1b24;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+    }
+
+    .collaborator-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .collaborator {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 6px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #142632;
+      text-decoration: none;
+    }
+
+    .collaborator:hover {
+      background: #1a303d;
+    }
+
+    .collaborator strong {
+      color: #f4fbff;
+    }
+
+    .collaborator span {
+      color: #a7b7c0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 760px) {
+      .collaborator-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 420px) {
+      .collaborator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  `,
 })
 export class SidebarComponent {
   private readonly collaboratorService = inject(CollaboratorService);
