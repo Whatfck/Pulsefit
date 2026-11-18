@@ -6,7 +6,7 @@ import { CollaboratorService } from "../../core/services/collaborator.service";
   standalone: true,
   template: `
     <section class="collaborators" aria-labelledby="collaborators-title">
-      <h2 id="collaborators-title">Nuestros colaboradores</h2>
+      <h2 id="collaborators-title">Nuestros Colaboradores</h2>
       <div class="collaborator-grid">
         @for (collaborator of collaborators(); track collaborator.profileUrl) {
           <a

@@ -87,14 +87,14 @@ export class NutritionService {
 
   readonly summary = computed<NutritionSummary | null>(() => {
     const profile = this.profileService.profile();
-    if (!this.isProfileComplete(profile)) {
+    if (!profile || !this.isProfileComplete(profile)) {
       return null;
     }
 
     const goal = this._selectedGoal();
     const config = GOAL_CONFIGS[goal];
-    const weightKg = profile.weightKg!;
-    const heightCm = profile.heightCm!;
+    const weightKg = profile.weight ?? profile.weightKg!;
+    const heightCm = profile.height ?? profile.heightCm!;
     const age = profile.age!;
 
     // Estimación orientativa basada en Mifflin-St Jeor neutra y factor moderado (1.45).
@@ -131,12 +131,16 @@ export class NutritionService {
     this._selectedGoal.set(goal);
   }
 
-  private isProfileComplete(profile: ProfileData): boolean {
+  private isProfileComplete(profile: ProfileData | null): boolean {
+    if (!profile) return false;
+
+    const weightKg = profile.weight ?? profile.weightKg;
+    const heightCm = profile.height ?? profile.heightCm;
     return (
-      typeof profile.weightKg === "number" &&
-      profile.weightKg > 0 &&
-      typeof profile.heightCm === "number" &&
-      profile.heightCm > 0 &&
+      typeof weightKg === "number" &&
+      weightKg > 0 &&
+      typeof heightCm === "number" &&
+      heightCm > 0 &&
       typeof profile.age === "number" &&
       profile.age > 0
     );
