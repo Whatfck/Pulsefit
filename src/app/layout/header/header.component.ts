@@ -9,8 +9,14 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" routerLink="/profile" aria-label="PulseFit, ir al perfil">
-          <span class="brand-mark" aria-hidden="true">P</span>
-          <span>PulseFit</span>
+          <img
+            class="brand-mark"
+            src="assets/icon-Pulsefit.png"
+            alt=""
+            width="38"
+            height="38"
+          />
+          <span>PULSE<span class="brand-accent">FIT</span></span>
         </a>
 
         <button
@@ -20,7 +26,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
           [attr.aria-expanded]="isMenuOpen()"
           aria-controls="primary-navigation"
         >
-          <span aria-hidden="true">{{ isMenuOpen() ? "Cerrar" : "Menu" }}</span>
+          <span aria-hidden="true">{{ isMenuOpen() ? "Cerrar" : "Menú" }}</span>
           <span class="sr-only">
             {{ isMenuOpen() ? "Cerrar navegacion" : "Abrir navegacion" }}
           </span>
@@ -47,7 +53,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
       top: 0;
       z-index: 20;
       border-bottom: 1px solid #1b2a35;
-      background: #0b171f;
+      background: rgba(11, 23, 31, 0.96);
     }
 
     .header-inner {
@@ -70,15 +76,15 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
       text-decoration: none;
     }
 
+    .brand-accent {
+      color: #c9ff44;
+    }
+
     .brand-mark {
       width: 38px;
       height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #c9ff44;
-      color: #081017;
-      font-size: 1.1rem;
+      border-radius: 10px;
+      object-fit: contain;
     }
 
     .primary-nav {
@@ -106,8 +112,8 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
       display: none;
       border: 0;
       border-radius: 8px;
-      background: #c9ff44;
-      color: #081017;
+      background: #1a303d;
+      color: #f4fbff;
       padding: 9px 12px;
       font-weight: 800;
     }
@@ -161,10 +167,10 @@ export class HeaderComponent {
   readonly isMenuOpen = signal(false);
 
   readonly navigation = [
-    { path: "/profile", label: "Perfil" },
-    { path: "/activity", label: "Actividad" },
+    { path: "/profile", label: "Perfil & IMC" },
+    { path: "/activity", label: "Diario & Actividad" },
     { path: "/routines", label: "Rutinas" },
-    { path: "/nutrition", label: "Nutricion" },
+    { path: "/nutrition", label: "Nutrición" },
     { path: "/tools", label: "Herramientas" },
   ];
 

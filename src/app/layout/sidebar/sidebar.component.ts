@@ -6,7 +6,7 @@ import { CollaboratorService } from "../../core/services/collaborator.service";
   standalone: true,
   template: `
     <section class="collaborators" aria-labelledby="collaborators-title">
-      <h2 id="collaborators-title">Equipo de desarrollo</h2>
+      <h2 id="collaborators-title">Nuestros colaboradores</h2>
       <div class="collaborator-grid">
         @for (collaborator of collaborators(); track collaborator.profileUrl) {
           <a
@@ -15,8 +15,9 @@ import { CollaboratorService } from "../../core/services/collaborator.service";
             target="_blank"
             rel="noopener noreferrer"
           >
+            <span class="dev-icon" aria-hidden="true">&lt;/&gt;</span>
             <strong>{{ collaborator.name }}</strong>
-            <span>{{ collaborator.role }}</span>
+            <span class="role">{{ collaborator.role }}</span>
           </a>
         }
       </div>
@@ -47,6 +48,7 @@ import { CollaboratorService } from "../../core/services/collaborator.service";
       gap: 6px;
       padding: 18px;
       border-radius: 10px;
+      border: 1px solid #263844;
       background: #142632;
       text-decoration: none;
     }
@@ -59,7 +61,14 @@ import { CollaboratorService } from "../../core/services/collaborator.service";
       color: #f4fbff;
     }
 
-    .collaborator span {
+    .dev-icon {
+      color: #c9ff44;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .role {
       color: #a7b7c0;
       font-size: 0.875rem;
     }
