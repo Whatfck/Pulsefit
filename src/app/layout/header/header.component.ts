@@ -9,7 +9,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" routerLink="/profile" aria-label="PulseFit, ir al perfil">
-          <img class="brand-mark" src="icon-Pulsefit.png" alt="" width="38" height="38" />
+          <span class="brand-mark" aria-hidden="true">P</span>
           <span>PULSE<span class="brand-accent">FIT</span></span>
         </a>
 
@@ -77,8 +77,12 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     .brand-mark {
       width: 38px;
       height: 38px;
+      display: grid;
+      place-items: center;
       border-radius: 10px;
-      object-fit: contain;
+      background: #c9ff44;
+      color: #081017;
+      font-size: 1.1rem;
     }
 
     .primary-nav {
