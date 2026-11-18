@@ -7,16 +7,16 @@ import { CollaboratorService } from '../../core/services/collaborator.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="border-t border-slate-800/80 bg-slate-900/50 py-4 mt-8">
+    <section class="border-t border-slate-800/80 bg-slate-900/50 py-4 mt-8" aria-labelledby="collaborators-title">
       <div class="container my-5">
-        <h2 class="text-center mb-4 text-light font-bold">Nuestros Colaboradores</h2>
+        <h2 id="collaborators-title" class="text-center mb-4 text-light font-bold">Nuestros Colaboradores</h2>
         @if (collaborators().length === 0) {
-          <p class="text-center text-slate-400">No hay colaboradores disponibles.</p>
+          <p class="text-center text-slate-400" role="status">No hay colaboradores disponibles.</p>
         } @else {
-          <div class="row my-3 g-3">
+          <div class="row my-3 g-3" role="list">
             @for (collab of collaborators(); track collab.name) {
-              <div class="col-12 col-sm-6 col-md-3">
-                <a [href]="collab.profileUrl" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+              <div class="col-12 col-sm-6 col-md-3" role="listitem">
+                <a [href]="collab.profileUrl" target="_blank" rel="noopener noreferrer" class="text-decoration-none collaborator-link" [attr.aria-label]="'Perfil de ' + collab.name + ' en GitHub'">
                   <div class="card bs-dark-card p-3 text-center h-100 shadow-sm">
                     <div class="card-body flex flex-col items-center justify-center">
                       <span class="dev-icon mb-2" aria-hidden="true">&lt;/&gt;</span>
