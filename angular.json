@@ -23,6 +23,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "icon-Pulsefit.png",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": ["src/styles.css"]
