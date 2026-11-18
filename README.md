@@ -45,6 +45,12 @@ PulseFit cuenta con un diseño de vanguardia pensado para el usuario moderno:
 
 ---
 
+## 🎥 Explicación de la aplicación
+
+Mira el video de explicación de PulseFit en [YouTube](https://youtu.be/nYBBF-3O8lY).
+
+---
+
 ## 👥 Equipo de Desarrollo
 
 Este proyecto fue desarrollado de forma colaborativa por:
