@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ProfileService } from "./profile.service";
-import { ProfileStorage } from "../storage/profile-storage";
+import { StorageService } from "./storage.service";
 import { UserProfile } from "../models/profile.model";
 
 const profile: UserProfile = {
@@ -18,7 +18,7 @@ describe("ProfileService", () => {
   beforeEach(() => {
     localStorage.clear();
     TestBed.configureTestingModule({
-      providers: [ProfileService, ProfileStorage],
+      providers: [ProfileService, StorageService],
     });
   });
 
@@ -44,7 +44,7 @@ describe("ProfileService", () => {
 
     TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      providers: [ProfileService, ProfileStorage],
+      providers: [ProfileService, StorageService],
     });
 
     const restoredService = TestBed.inject(ProfileService);
