@@ -1,0 +1,221 @@
+.nutrition-page {
+  max-width: 980px;
+  display: grid;
+  gap: 24px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.module-name {
+  margin: 0 0 10px;
+  color: #c9ff44;
+  font-weight: 800;
+}
+
+.page-header h1 {
+  max-width: 16ch;
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 4.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.goal-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.goal-selector button {
+  border: 1px solid #344954;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: #0d181f;
+  color: #dbe9ef;
+  font-weight: 700;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.goal-selector button.active {
+  border-color: #c9ff44;
+  background: #c9ff44;
+  color: #081017;
+}
+
+.empty-state {
+  padding: 32px;
+  border: 1px dashed #344954;
+  border-radius: 18px;
+  background: #101c24;
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.empty-state h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.empty-state p {
+  margin: 0;
+  max-width: 58ch;
+  color: #b2c1c9;
+  line-height: 1.6;
+}
+
+.profile-link {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #c9ff44;
+  color: #081017;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #263641;
+  border-radius: 18px;
+  background: #101c24;
+}
+
+.metric-card {
+  display: grid;
+  gap: 8px;
+}
+
+.metric-label {
+  color: #b2c1c9;
+  font-size: 0.85rem;
+}
+
+.metric-value {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #eef7ff;
+}
+
+.metric-value.accent {
+  color: #c9ff44;
+}
+
+.metric-note {
+  margin: 0;
+  color: #b2c1c9;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.macros-card h2,
+.info-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.section-subtitle {
+  margin: 0 0 18px;
+  color: #b2c1c9;
+  font-size: 0.92rem;
+}
+
+.macro-list {
+  display: grid;
+  gap: 16px;
+}
+
+.macro-item {
+  display: grid;
+  gap: 8px;
+}
+
+.macro-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.macro-row strong {
+  color: #eef7ff;
+}
+
+.macro-row span {
+  color: #dbe9ef;
+  font-size: 0.92rem;
+}
+
+.progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #0a141a;
+  border: 1px solid #263641;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.progress-fill.protein {
+  background: #c9ff44;
+}
+
+.progress-fill.fat {
+  background: #6ee7b7;
+}
+
+.progress-fill.carbs {
+  background: #60a5fa;
+}
+
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.guide-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+  color: #dbe9ef;
+  line-height: 1.5;
+}
+
+.disclaimer {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #263641;
+  background: #0d181f;
+  color: #b2c1c9;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 820px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guides-grid {
+    grid-template-columns: 1fr;
+  }
+}
